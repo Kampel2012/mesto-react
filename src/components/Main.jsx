@@ -1,8 +1,21 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import PopupWithForm from './PopupWithForm';
 import ImagePopup from './ImagePopup';
+import { api } from '../utils/Api';
 
 const Main = (props) => {
+  const [userName, setUserName] = useState();
+  const [userDescription, setUserDescription] = useState();
+  const [userAvatar, setUserAvatar] = useState();
+
+  useEffect(() => {
+    api.getUserInfoData().then((res) => {
+      setUserName(res.name);
+      setUserDescription(res.about);
+      setUserAvatar(res.avatar);
+    });
+  }, []);
+
   return (
     <>
       <PopupWithForm
@@ -102,14 +115,14 @@ const Main = (props) => {
             className="profile__btn profile__btn_type_avatar"
           >
             <img
-              src="<%=require('./images/prof-avatar.jpg')%>"
+              src={userAvatar}
               alt="Аватар профиля"
               className="profile__avatar"
             />
           </button>
           <div className="profile__info">
             <div className="profile__title">
-              <h1 className="profile__name">Жак-Ив Кусто</h1>
+              <h1 className="profile__name">{userName}</h1>
               <button
                 onClick={props.onEditProfile}
                 className="profile__btn profile__btn_type_edit"
@@ -117,7 +130,7 @@ const Main = (props) => {
                 aria-label="Редактировать"
               ></button>
             </div>
-            <p className="profile__subtitle">Исследователь океана</p>
+            <p className="profile__subtitle">{userDescription}</p>
           </div>
         </div>
         <button
