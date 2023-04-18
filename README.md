@@ -44,5 +44,6 @@
 - Класс карточки выделен также в отдельный файл
 
 ---
+![setting-up-a-business-in-qatar-1536x1024](https://user-images.githubusercontent.com/117913798/232798637-3b99c96e-659f-4f16-b1ac-87d5480df45c.jpg)
 
-![kofe-karandasi-rabocij-stol-noutbuk-smartfon]([https://images.surferseo.art/6fc549a5-f8fa-47f8-ae7b-ab75a89b5e36.png](https://www.expatica.com/app/uploads/sites/13/2019/11/setting-up-a-business-in-qatar-1920x1080.jpg))
+
