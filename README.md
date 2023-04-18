@@ -43,7 +43,7 @@
 - Функционал Валидации выделен в отдельный файл, как отдельный логический блок
 - Класс карточки выделен также в отдельный файл
 
----
-![setting-up-a-business-in-qatar-1536x1024](https://user-images.githubusercontent.com/117913798/232798637-3b99c96e-659f-4f16-b1ac-87d5480df45c.jpg)
+---![Computer-Coffee-Mug-Telephone-on-black-wood-table-sun-rising-000081080717_Full](https://user-images.githubusercontent.com/117913798/232799233-cdac15c3-a8ef-4f94-8843-5a9af24c9ae4.jpg)
+
 
 
