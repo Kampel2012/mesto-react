@@ -1,7 +1,5 @@
 import React from 'react';
 
-// TODO pop-up pop-up_data_profile - 20
-
 const PopupWithForm = (props) => {
   const classes = `pop-up pop-up_data_${props.name} ${
     props.isOpen && 'pop-up_opened'
@@ -20,7 +18,7 @@ const PopupWithForm = (props) => {
           ></button>
           <form
             className={`pop-up__form pop-up__form_data_${props.name}`}
-            name={`pop-up-form-${props.name}`} // ? было  pop-up-form-profile-edit  name="pop-up__form_data_cards"
+            name={`pop-up-form-${props.name}`} // на будущие корректировки, было pop-up-form-profile-edit и name="pop-up__form_data_cards"
             noValidate
             autoComplete="off"
           >

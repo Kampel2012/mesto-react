@@ -8,72 +8,97 @@ class Api {
     return res.ok ? res.json() : Promise.reject(`Ошибка: ${res.status}`);
   }
 
-  getUserInfoData() {
-    return fetch(`${this.baseUrl}/users/me`, { headers: this.headers })
-      .then(this._checkResponse)
-      .catch((err) => console.log(err));
+  async getUserInfoData() {
+    try {
+      const res = await fetch(`${this.baseUrl}/users/me`, {
+        headers: this.headers,
+      });
+      return this._checkResponse(res);
+    } catch (err) {
+      return console.log(err);
+    }
   }
 
-  getInitialCards() {
-    return fetch(`${this.baseUrl}/cards`, { headers: this.headers })
-      .then(this._checkResponse)
-      .catch((err) => console.log(err));
+  async getInitialCards() {
+    try {
+      const res = await fetch(`${this.baseUrl}/cards`, {
+        headers: this.headers,
+      });
+      return this._checkResponse(res);
+    } catch (err) {
+      return console.log(err);
+    }
   }
 
-  editProfile({ name, job }) {
-    return fetch(`${this.baseUrl}/users/me`, {
-      method: 'PATCH',
-      headers: this.headers,
-      body: JSON.stringify({
-        name: name,
-        about: job,
-      }),
-    })
-      .then(this._checkResponse)
-      .catch((err) => console.log(err));
+  async editProfile({ name, job }) {
+    try {
+      const res = await fetch(`${this.baseUrl}/users/me`, {
+        method: 'PATCH',
+        headers: this.headers,
+        body: JSON.stringify({
+          name: name,
+          about: job,
+        }),
+      });
+      return this._checkResponse(res);
+    } catch (err) {
+      return console.log(err);
+    }
   }
 
-  addNewCard({ name, link }) {
-    return fetch(`${this.baseUrl}/cards`, {
-      method: 'POST',
-      headers: this.headers,
-      body: JSON.stringify({
-        name: name,
-        link: link,
-      }),
-    })
-      .then(this._checkResponse)
-      .catch((err) => console.log(err));
+  async addNewCard({ name, link }) {
+    try {
+      const res = await fetch(`${this.baseUrl}/cards`, {
+        method: 'POST',
+        headers: this.headers,
+        body: JSON.stringify({
+          name: name,
+          link: link,
+        }),
+      });
+      return this._checkResponse(res);
+    } catch (err) {
+      return console.log(err);
+    }
   }
 
-  deleteCard(id) {
-    return fetch(`${this.baseUrl}/cards/${id}`, {
-      method: 'DELETE',
-      headers: this.headers,
-    })
-      .then(this._checkResponse)
-      .catch((err) => console.log(err));
+  async deleteCard(id) {
+    try {
+      const res = await fetch(`${this.baseUrl}/cards/${id}`, {
+        method: 'DELETE',
+        headers: this.headers,
+      });
+      return this._checkResponse(res);
+    } catch (err) {
+      return console.log(err);
+    }
   }
 
-  switchStateLike(id, state) {
-    return fetch(`${this.baseUrl}/cards/${id}/likes`, {
-      method: state,
-      headers: this.headers,
-    })
-      .then(this._checkResponse)
-      .catch((err) => console.log(err));
+  async switchStateLike(id, state) {
+    try {
+      const res = await fetch(`${this.baseUrl}/cards/${id}/likes`, {
+        method: state,
+        headers: this.headers,
+      });
+      return this._checkResponse(res);
+    } catch (err) {
+      return console.log(err);
+    }
   }
 
-  editProfileAvatar({ link }) {
-    return fetch(`${this.baseUrl}/users/me/avatar`, {
-      method: 'PATCH',
-      headers: this.headers,
-      body: JSON.stringify({
-        avatar: link,
-      }),
-    })
-      .then(this._checkResponse)
-      .catch((err) => console.log(err));
+  async editProfileAvatar({ link }) {
+    try {
+      const res = await fetch(`${this.baseUrl}/users/me/avatar`, {
+        method: 'PATCH',
+        headers: this.headers,
+        body: JSON.stringify({
+          avatar: link,
+        }),
+      });
+      return this._checkResponse(res);
+    } catch (err) {
+      return console.log(err);
+    }
   }
 
   // другие методы работы с API

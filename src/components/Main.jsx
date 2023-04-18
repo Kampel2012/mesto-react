@@ -2,17 +2,25 @@ import React, { useEffect, useState } from 'react';
 import PopupWithForm from './PopupWithForm';
 import ImagePopup from './ImagePopup';
 import { api } from '../utils/Api';
+import Card from './Card';
 
 const Main = (props) => {
   const [userName, setUserName] = useState();
   const [userDescription, setUserDescription] = useState();
   const [userAvatar, setUserAvatar] = useState();
+  const [cards, setCards] = useState([]);
 
   useEffect(() => {
     api.getUserInfoData().then((res) => {
       setUserName(res.name);
       setUserDescription(res.about);
       setUserAvatar(res.avatar);
+    });
+  }, []);
+
+  useEffect(() => {
+    api.getInitialCards().then((res) => {
+      setCards([...res]);
     });
   }, []);
 
@@ -105,7 +113,7 @@ const Main = (props) => {
 
       <PopupWithForm name="confirm" title="Вы уверены?"></PopupWithForm>
 
-      <ImagePopup />
+      <ImagePopup card={props.card} onClose={props.closeAllPopups} />
 
       <section className="profile">
         <div className="profile__wrapper">
@@ -142,27 +150,15 @@ const Main = (props) => {
       </section>
 
       <section className="gallery">
-        <template id="card-template">
-          <article className="card">
-            <img className="card__image" src="#" alt="" />
-            <div className="card__wrapper">
-              <h2 className="card__title"> </h2>
-              <div>
-                <button
-                  className="card__btn card__btn_type_like"
-                  type="button"
-                  aria-label="Лайкнуть"
-                ></button>
-                <p className="card__counter"></p>
-              </div>
-            </div>
-            <button
-              className="card__btn card__btn_type_delete"
-              type="button"
-              aria-label="Удалить"
-            ></button>
-          </article>
-        </template>
+        {cards.map((item, i) => (
+          <Card
+            name={item.name}
+            link={item.link}
+            likes={[...item.likes]}
+            key={item._id}
+            onCardClick={props.onCardClick}
+          />
+        ))}
       </section>
     </>
   );
