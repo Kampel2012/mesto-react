@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useRef } from 'react';
+import useOnClickOutside from './hooks/useOutsideClick';
 
 const PopupWithForm = ({
   isOpen,
@@ -9,9 +10,11 @@ const PopupWithForm = ({
   children,
 }) => {
   const classes = `pop-up pop-up_data_${name} ${isOpen && 'pop-up_opened'}`;
+  const popup = useRef(null);
+  useOnClickOutside(popup, onClose);
 
   return (
-    <div className={classes}>
+    <div className={classes} ref={popup}>
       <div className="pop-up__container">
         <h2 className="pop-up__title">{title}</h2>
         <button
