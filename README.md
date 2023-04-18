@@ -1,6 +1,4 @@
-# mesto-react
-
-# Проект: Местечко :bowtie:
+# Проект: Местечко на React :bowtie:
 
 ## Ссылка на gitHubPages - в Процессе
 
