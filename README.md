@@ -45,4 +45,4 @@
 
 ---
 
-![kofe-karandasi-rabocij-stol-noutbuk-smartfon](https://images.surferseo.art/6fc549a5-f8fa-47f8-ae7b-ab75a89b5e36.png)
+![kofe-karandasi-rabocij-stol-noutbuk-smartfon]([https://images.surferseo.art/6fc549a5-f8fa-47f8-ae7b-ab75a89b5e36.png](https://www.expatica.com/app/uploads/sites/13/2019/11/setting-up-a-business-in-qatar-1920x1080.jpg))
