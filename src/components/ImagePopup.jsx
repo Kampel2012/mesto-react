@@ -1,25 +1,23 @@
 import React from 'react';
 
-const ImagePopup = (props) => {
-  const classes = `pop-up pop-up_data_image-card ${
-    props.card && 'pop-up_opened'
-  }`;
+const ImagePopup = ({ card, onClose }) => {
+  const classes = `pop-up pop-up_data_image-card ${card && 'pop-up_opened'}`;
 
   return (
-    <>
+    card && (
       <div className={classes}>
         <div className="pop-up__container pop-up__container_data_image-card">
           <button
-            onClick={props.onClose}
+            onClick={onClose}
             type="button"
             className="pop-up__btn pop-up__btn_type_close"
             aria-label="Закрыть"
-          ></button>
-          <img className="pop-up__image-card" src={props.card} alt="#" />
-          <p className="pop-up__subtitle"></p>
+          />
+          <img className="pop-up__image-card" src={card.link} alt={card.name} />
+          <p className="pop-up__subtitle" />
         </div>
       </div>
-    </>
+    )
   );
 };
 

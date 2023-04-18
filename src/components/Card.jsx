@@ -1,8 +1,8 @@
 import React from 'react';
 
-const Card = (props) => {
+const Card = ({ onCardClick, link, name, likes }) => {
   function handleClick() {
-    props.onCardClick(props.link);
+    onCardClick({ link, name });
   }
 
   return (
@@ -10,25 +10,25 @@ const Card = (props) => {
       <img
         onClick={handleClick}
         className="card__image"
-        src={props.link}
-        alt={props.name}
+        src={link}
+        alt={name}
       />
       <div className="card__wrapper">
-        <h2 className="card__title">{props.name}</h2>
+        <h2 className="card__title">{name}</h2>
         <div>
           <button
             className="card__btn card__btn_type_like"
             type="button"
             aria-label="Лайкнуть"
-          ></button>
-          <p className="card__counter">{props.likes.length}</p>
+          />
+          <p className="card__counter">{likes.length}</p>
         </div>
       </div>
       <button
         className="card__btn card__btn_type_delete"
         type="button"
         aria-label="Удалить"
-      ></button>
+      />
     </article>
   );
 };
