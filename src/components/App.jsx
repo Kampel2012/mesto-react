@@ -141,6 +141,7 @@ function App() {
           title="Вы уверены?"
           buttonText={'Да'}
           onClose={closeAllPopups}
+          isOpen={false}
         />
 
         <ImagePopup card={selectCard} onClose={closeAllPopups} />
