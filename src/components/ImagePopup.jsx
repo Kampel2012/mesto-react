@@ -4,8 +4,8 @@ const ImagePopup = ({ card, onClose }) => {
   const classes = `pop-up pop-up_data_image-card ${card && 'pop-up_opened'}`;
 
   return (
-    card && (
-      <div className={classes}>
+    <div className={classes}>
+      {card && (
         <div className="pop-up__container pop-up__container_data_image-card">
           <button
             onClick={onClose}
@@ -14,10 +14,10 @@ const ImagePopup = ({ card, onClose }) => {
             aria-label="Закрыть"
           />
           <img className="pop-up__image-card" src={card.link} alt={card.name} />
-          <p className="pop-up__subtitle" />
+          <p className="pop-up__subtitle">{card.name}</p>
         </div>
-      </div>
-    )
+      )}
+    </div>
   );
 };
 
