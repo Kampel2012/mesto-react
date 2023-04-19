@@ -1,4 +1,5 @@
 import React from 'react';
+import usePopupClose from './hooks/usePopupClose';
 
 const PopupWithForm = ({
   isOpen,
@@ -8,6 +9,7 @@ const PopupWithForm = ({
   buttonText,
   children,
 }) => {
+  usePopupClose(isOpen, onClose);
   const classes = `pop-up pop-up_data_${name} ${isOpen && 'pop-up_opened'}`;
 
   return (

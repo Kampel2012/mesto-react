@@ -1,7 +1,9 @@
 import React from 'react';
+import usePopupClose from './hooks/usePopupClose';
 
 const ImagePopup = ({ card, onClose }) => {
   const classes = `pop-up pop-up_data_image-card ${card && 'pop-up_opened'}`;
+  usePopupClose(card, onClose);
 
   return (
     <div className={classes}>

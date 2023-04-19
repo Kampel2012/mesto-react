@@ -136,7 +136,13 @@ function App() {
           </label>
         </PopupWithForm>
 
-        <PopupWithForm name="confirm" title="Вы уверены?" buttonText={'Да'} />
+        <PopupWithForm
+          name="confirm"
+          title="Вы уверены?"
+          buttonText={'Да'}
+          onClose={closeAllPopups}
+          isOpen={false}
+        />
 
         <ImagePopup card={selectCard} onClose={closeAllPopups} />
       </div>
