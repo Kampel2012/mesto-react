@@ -1,5 +1,5 @@
 import React from 'react';
-import usePopupClose from './hooks/usePopupClose';
+import usePopupClose from '../hooks/usePopupClose';
 
 const PopupWithForm = ({
   isOpen,
