@@ -25,13 +25,13 @@ class Api {
     });
   }
 
-  editProfile({ name, job }) {
+  editProfile({ name, about }) {
     return this._request(`${this.baseUrl}/users/me`, {
       method: 'PATCH',
       headers: this.headers,
       body: JSON.stringify({
         name: name,
-        about: job,
+        about: about,
       }),
     });
   }
@@ -54,14 +54,14 @@ class Api {
     });
   }
 
-  switchStateLike(id, state) {
+  changeLikeCardStatus(id, state) {
     return this._request(`${this.baseUrl}/cards/${id}/likes`, {
       method: state,
       headers: this.headers,
     });
   }
 
-  editProfileAvatar({ link }) {
+  editProfileAvatar(link) {
     return this._request(`${this.baseUrl}/users/me/avatar`, {
       method: 'PATCH',
       headers: this.headers,

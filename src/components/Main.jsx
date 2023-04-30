@@ -2,11 +2,17 @@ import React, { useContext } from 'react';
 
 import Card from './Card';
 import { CurrentUserContext } from '../contexts/CurrentUserContext';
-import { CardsContext } from '../contexts/CardsContext';
 
-const Main = ({ onEditProfile, onAddPlace, onEditAvatar, onCardClick }) => {
+const Main = ({
+  onEditProfile,
+  onAddPlace,
+  onEditAvatar,
+  onCardClick,
+  onCardLike,
+  onCardDelete,
+  cards,
+}) => {
   const userContext = useContext(CurrentUserContext);
-  const cardsContext = useContext(CardsContext);
 
   return (
     <main>
@@ -45,14 +51,17 @@ const Main = ({ onEditProfile, onAddPlace, onEditAvatar, onCardClick }) => {
       </section>
 
       <section className="gallery">
-        {cardsContext.map((item, i) => (
+        {cards.map((item, i) => (
           <Card
             name={item.name}
             link={item.link}
             likes={[...item.likes]}
             key={item._id}
+            _id={item._id}
             owner={item.owner}
             onCardClick={onCardClick}
+            onCardLike={onCardLike}
+            onCardDelete={onCardDelete}
           />
         ))}
       </section>

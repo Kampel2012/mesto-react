@@ -8,6 +8,7 @@ const PopupWithForm = ({
   title,
   buttonText,
   children,
+  onSubmit,
 }) => {
   usePopupClose(isOpen, onClose);
   const classes = `pop-up pop-up_data_${name} ${isOpen && 'pop-up_opened'}`;
@@ -23,6 +24,7 @@ const PopupWithForm = ({
           aria-label="Закрыть"
         />
         <form
+          onSubmit={onSubmit}
           className={`pop-up__form pop-up__form_data_${name}`}
           name={`pop-up-form-${name}`} // на будущие корректировки, было pop-up-form-profile-edit и name="pop-up__form_data_cards"
           /* noValidate */
