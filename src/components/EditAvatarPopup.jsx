@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import PopupWithForm from './PopupWithForm';
 
 const EditAvatarPopup = ({ onClose, isOpen, onUpdateAvatar }) => {
@@ -8,6 +8,10 @@ const EditAvatarPopup = ({ onClose, isOpen, onUpdateAvatar }) => {
     e.preventDefault();
     onUpdateAvatar(avatarRef.current.value);
   }
+
+  useEffect(() => {
+    avatarRef.current.value = '';
+  }, [isOpen]);
 
   return (
     <PopupWithForm
@@ -27,6 +31,7 @@ const EditAvatarPopup = ({ onClose, isOpen, onUpdateAvatar }) => {
           id="pop-up__input-linkAvatar"
           placeholder="Ссылка на аватар"
           required
+          defaultValue={''}
         />
         <span className="pop-up__input-error pop-up__input-linkAvatar-error" />
       </label>

@@ -4,13 +4,13 @@ import { CurrentUserContext } from '../contexts/CurrentUserContext';
 
 const EditProfilePopup = ({ isOpen, onClose, onUpdateUser }) => {
   const currentUser = useContext(CurrentUserContext);
-  const [name, setName] = useState(currentUser.name);
-  const [description, setDescription] = useState(currentUser.about);
+  const [name, setName] = useState('');
+  const [description, setDescription] = useState('');
 
   useEffect(() => {
     setName(currentUser.name);
     setDescription(currentUser.about);
-  }, [currentUser]);
+  }, [currentUser, isOpen]);
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -41,7 +41,7 @@ const EditProfilePopup = ({ isOpen, onClose, onUpdateUser }) => {
           minLength="2"
           maxLength="40"
           onChange={(e) => setName(e.target.value)}
-          defaultValue={name} // TODO проверить работу позже
+          value={name}
         />
         <span className="pop-up__input-error pop-up__input-name-error" />
       </label>
@@ -56,7 +56,7 @@ const EditProfilePopup = ({ isOpen, onClose, onUpdateUser }) => {
           required
           minLength="2"
           maxLength="200"
-          defaultValue={description}
+          value={description}
         />
         <span className="pop-up__input-error pop-up__input-job-error" />
       </label>

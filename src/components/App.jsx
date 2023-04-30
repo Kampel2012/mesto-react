@@ -6,7 +6,6 @@ import PopupWithForm from './PopupWithForm';
 import ImagePopup from './ImagePopup';
 import { api } from '../utils/Api';
 import { CurrentUserContext } from '../contexts/CurrentUserContext';
-import { CardsContext } from '../contexts/CardsContext';
 import EditProfilePopup from './EditProfilePopup';
 import EditAvatarPopup from './EditAvatarPopup';
 import AddPlacePopup from './AddPlacePopup';
@@ -60,15 +59,19 @@ function App() {
   function handleCardLike(likes, _id) {
     const isLiked = likes.some((i) => i._id === currentUser._id);
     const method = isLiked ? 'DELETE' : 'PUT';
-    api.changeLikeCardStatus(_id, method).then((newCard) => {
-      setCards((state) => state.map((c) => (c._id === _id ? newCard : c)));
-    });
+    api
+      .changeLikeCardStatus(_id, method)
+      .then((newCard) => {
+        setCards((state) => state.map((c) => (c._id === _id ? newCard : c)));
+      })
+      .catch(console.warn);
   }
 
   function handleDeleteClick(id) {
     api
       .deleteCard(id)
-      .then(() => setCards((state) => state.filter((item) => item._id !== id)));
+      .then(() => setCards((state) => state.filter((item) => item._id !== id)))
+      .catch(console.warn);
   }
 
   async function handleUpdateUser(userData) {
@@ -105,46 +108,44 @@ function App() {
     <div className="App">
       <div className="page">
         <CurrentUserContext.Provider value={currentUser}>
-          <CardsContext.Provider value={cards}>
-            <Header />
-            <Main
-              onEditProfile={handleEditProfileClick}
-              onAddPlace={handleAddPlaceClick}
-              onEditAvatar={handleEditAvatarClick}
-              onCardClick={handleCardClick}
-              onCardLike={handleCardLike}
-              onCardDelete={handleDeleteClick}
-              cards={cards}
-            />
-            <Footer />
+          <Header />
+          <Main
+            onEditProfile={handleEditProfileClick}
+            onAddPlace={handleAddPlaceClick}
+            onEditAvatar={handleEditAvatarClick}
+            onCardClick={handleCardClick}
+            onCardLike={handleCardLike}
+            onCardDelete={handleDeleteClick}
+            cards={cards}
+          />
+          <Footer />
 
-            <EditProfilePopup
-              onUpdateUser={handleUpdateUser}
-              isOpen={isEditProfilePopupOpen}
-              onClose={closeAllPopups}
-            />
+          <EditProfilePopup
+            onUpdateUser={handleUpdateUser}
+            isOpen={isEditProfilePopupOpen}
+            onClose={closeAllPopups}
+          />
 
-            <EditAvatarPopup
-              isOpen={isEditAvatarPopupOpen}
-              onClose={closeAllPopups}
-              onUpdateAvatar={handleUpdateAvatar}
-            />
+          <EditAvatarPopup
+            isOpen={isEditAvatarPopupOpen}
+            onClose={closeAllPopups}
+            onUpdateAvatar={handleUpdateAvatar}
+          />
 
-            <AddPlacePopup
-              isOpen={isAddPlacePopupOpen}
-              onClose={closeAllPopups}
-              onAddPlace={handleAddPlaceSubmit}
-            />
+          <AddPlacePopup
+            isOpen={isAddPlacePopupOpen}
+            onClose={closeAllPopups}
+            onAddPlace={handleAddPlaceSubmit}
+          />
 
-            <PopupWithForm
-              name="confirm"
-              title="Вы уверены?"
-              buttonText={'Да'}
-              onClose={closeAllPopups}
-              isOpen={false}
-            />
-            <ImagePopup card={selectCard} onClose={closeAllPopups} />
-          </CardsContext.Provider>
+          <PopupWithForm
+            name="confirm"
+            title="Вы уверены?"
+            buttonText={'Да'}
+            onClose={closeAllPopups}
+            isOpen={false}
+          />
+          <ImagePopup card={selectCard} onClose={closeAllPopups} />
         </CurrentUserContext.Provider>
       </div>
     </div>
