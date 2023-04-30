@@ -1,6 +1,6 @@
 # Проект: Местечко на React :bowtie:
 
-## Ссылка на gitHubPages - в Процессе
+## Ссылка на gitHubPages - https://kampel2012.github.io/mesto-react/
 
 ### Обзор :point_down:
 
