@@ -36,7 +36,7 @@ const PopupWithForm = ({
               className="pop-up__btn pop-up__btn_type_submit"
               type="submit"
             >
-              {buttonText}
+              {buttonText || 'Сохранить'}
             </button>
           </fieldset>
         </form>
