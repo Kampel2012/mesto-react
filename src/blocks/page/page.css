@@ -3,4 +3,5 @@
   background: #000;
   position: relative;
   font-family: 'Inter', sans-serif, Arial, Helvetica, sans-serif;
+  min-height: 100vh;
 }

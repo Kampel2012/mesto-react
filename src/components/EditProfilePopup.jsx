@@ -41,7 +41,7 @@ const EditProfilePopup = ({ isOpen, onClose, onUpdateUser }) => {
           minLength="2"
           maxLength="40"
           onChange={(e) => setName(e.target.value)}
-          value={name}
+          value={name || ''}
         />
         <span className="pop-up__input-error pop-up__input-name-error" />
       </label>
@@ -56,7 +56,7 @@ const EditProfilePopup = ({ isOpen, onClose, onUpdateUser }) => {
           required
           minLength="2"
           maxLength="200"
-          value={description}
+          value={description || ''}
         />
         <span className="pop-up__input-error pop-up__input-job-error" />
       </label>
