@@ -37,8 +37,9 @@ Mesto-React - это учебный проект, выполненный на Re
 Mesto-React - это отличный пример того, как можно использовать React для создания веб-приложений с интересной функциональностью и хорошей поддерживаемостью кода. :fire:
 
 
+![1234](https://github.com/Kampel2012/mesto-react/assets/117913798/8ea4ffe2-0038-404c-8288-6957f733ad5e)
 
----![Computer-Coffee-Mug-Telephone-on-black-wood-table-sun-rising-000081080717_Full](https://user-images.githubusercontent.com/117913798/232799233-cdac15c3-a8ef-4f94-8843-5a9af24c9ae4.jpg)
+
 
 
 
