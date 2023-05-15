@@ -13,12 +13,18 @@ const Main = ({
   onCardLike,
   onCardDelete,
   cards,
+  currentUserEmail,
+  exitHandle,
 }) => {
   const userContext = useContext(CurrentUserContext);
 
   return (
     <>
-      <Header btnText="" />
+      <Header
+        btnText={`${currentUserEmail}, Выйти`}
+        currentUserEmail={currentUserEmail}
+        exitHandle={exitHandle}
+      />
       <main>
         <section className="profile">
           <div className="profile__wrapper">
