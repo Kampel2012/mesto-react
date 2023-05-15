@@ -3,6 +3,8 @@
 @import url(./blocks/page/page.css);
 @import url(./blocks/header/header.css);
 @import url(./blocks/header/__logo/header__logo.css);
+@import url(./blocks/header/__link/header__link.css);
+@import url(./blocks/header/__btn/header__btn.css);
 @import url(./blocks/pop-up/pop-up.css);
 @import url(./blocks/pop-up/_data/pop-up_data_image-card.css);
 @import url(./blocks/pop-up/__btn/pop-up__btn.css);
@@ -45,3 +47,4 @@
 @import url(./blocks/pop-up/__input/_type/pop-up__input_type_error.css);
 @import url(./blocks/pop-up/__input-error/pop-up__input-error.css);
 @import url(./blocks/pop-up/__input-error/_visible/pop-up__input-error_visible.css);
+@import url(./blocks/myForm/myForm.css);
