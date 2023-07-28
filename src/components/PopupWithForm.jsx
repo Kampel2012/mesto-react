@@ -31,7 +31,7 @@ const PopupWithForm = ({
           autoComplete="off"
         >
           <fieldset className="pop-up__set">
-            {children}
+            {children || ''}
             <button
               className="pop-up__btn pop-up__btn_type_submit"
               type="submit"
